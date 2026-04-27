@@ -22,16 +22,13 @@ model_option = st.sidebar.selectbox(
 )
 
 # Cargar el modelo seleccionado
+# Cargar el modelo seleccionado
 if model_option == "KNN":
-    # CORRECTO (Busca el archivo en la misma carpeta de GitHub)
-model = joblib.load("modelo_iris_knn.pkl") 
-
-# INCORRECTO (Dará error en la nube)
-# model = joblib.load("C:/Users/Documents/modelo_iris_knn.pkl")
-    st.sidebar.info("Cargado: modelo_iris_knn.pkl")
+    # Agrega 4 espacios (o un Tab) al inicio de la siguiente línea:
+    model = load_model("modelo_iris_knn.pkl") 
 else:
+    # También esta línea debe llevar 4 espacios al inicio:
     model = load_model("modelo_iris_svm.pkl")
-    st.sidebar.info("Cargado: modelo_iris_svm.pkl")
 
 # Interfaz de entrada de datos (Características de Iris)
 st.subheader("Entrada de Datos")
