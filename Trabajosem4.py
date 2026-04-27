@@ -23,7 +23,11 @@ model_option = st.sidebar.selectbox(
 
 # Cargar el modelo seleccionado
 if model_option == "KNN":
-    model = load_model("modelo_iris_knn.pkl")
+    # CORRECTO (Busca el archivo en la misma carpeta de GitHub)
+model = joblib.load("modelo_iris_knn.pkl") 
+
+# INCORRECTO (Dará error en la nube)
+# model = joblib.load("C:/Users/Documents/modelo_iris_knn.pkl")
     st.sidebar.info("Cargado: modelo_iris_knn.pkl")
 else:
     model = load_model("modelo_iris_svm.pkl")
